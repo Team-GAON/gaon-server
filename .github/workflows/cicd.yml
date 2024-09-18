@@ -1,0 +1,19 @@
+name: NestJS build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH-deploy
+        uses: appleboy/ssh-action@master 
+        with: 
+          host: ${{ secrets.REMOTE_IP }} 
+          username: ${{ secrets.REMOTE_SSH_ID }} 
+          password: ${{ secrets.REMOTE_SSH_KEY }} 
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            sh gaon-deploy.sh

@@ -11,8 +11,10 @@ import { LikeService } from './like.service';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('likes/:boardId')
+@ApiTags('LIKES')
 export class LikeController {
   constructor(private readonly likeService: LikeService) {}
 

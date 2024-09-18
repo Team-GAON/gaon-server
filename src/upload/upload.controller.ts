@@ -5,12 +5,14 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
 
 @Controller('upload')
+@ApiTags('FILE')
 export class UploadController {
-  @Post('file')
+  @Post()
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({

@@ -6,10 +6,11 @@ import { Board } from './board.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @Controller('boards')
 @ApiBearerAuth('access-token')
+@ApiTags('BOARDS')
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
