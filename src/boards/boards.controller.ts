@@ -24,14 +24,9 @@ export class BoardsController {
     return this.boardsService.getFreeBoards();
   }
 
-  @Get('/shorts')
-  async getShortsBoards(): Promise<Board[]> {
-    return this.boardsService.getShortsBoards();
-  }
-
-  @Get('/coding')
+  @Get('/anonymous')
   async getCodingBoards(): Promise<Board[]> {
-    return this.boardsService.getCodingBoards();
+    return this.boardsService.getAnonymousBoards();
   }
 
   @Get('/rank')

@@ -40,23 +40,11 @@ export class BoardsService {
     });
   }
 
-  async getShortsBoards(): Promise<Board[]> {
+  async getAnonymousBoards(): Promise<Board[]> {
     return this.boardRepository.find({
       relations: ['author', 'likes'],
       where: {
-        category: 'SHORTS',
-      },
-      order: {
-        id: 'DESC',
-      },
-    });
-  }
-
-  async getCodingBoards(): Promise<Board[]> {
-    return this.boardRepository.find({
-      relations: ['author', 'likes'],
-      where: {
-        category: 'CODING',
+        category: 'ANONYMOUS',
       },
       order: {
         id: 'DESC',

@@ -13,14 +13,14 @@ export class Board extends BaseEntity {
   @ManyToOne((type) => User, (user) => user.board, { eager: false })
   author: User;
 
-  @Column('longtext')
+  @Column("longtext")
   detail: string;
 
   @Column()
   createdAt: string;
 
   @Column()
-  category: 'FREE' | 'SHORTS' | 'CODING';
+  category: "FREE" | "ANONYMOUS";
 
   @OneToMany(() => Like, (like) => like.board)
   likes: Like[];
